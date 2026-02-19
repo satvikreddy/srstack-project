@@ -2,6 +2,7 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import { AppProvider } from '@/components/app-provider'
+import { AppConvexProvider } from '@/integrations/convex/app-convex-provider'
 import { AppLayout } from '@/components/app-layout'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
@@ -47,12 +48,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <AppProvider>
-          <TooltipProvider>
-            <AppLayout>{children}</AppLayout>
-            <Toaster />
-          </TooltipProvider>
-        </AppProvider>
+        <AppConvexProvider>
+          <AppProvider>
+            <TooltipProvider>
+              <AppLayout>{children}</AppLayout>
+              <Toaster />
+            </TooltipProvider>
+          </AppProvider>
+        </AppConvexProvider>
 
         <TanStackDevtools
           config={{
