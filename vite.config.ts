@@ -24,6 +24,12 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  resolve: {
+    alias: [
+      // this is needed due to https://github.com/TanStack/router/issues/5738
+      { find: 'use-sync-external-store/shim/index.js', replacement: 'react' },
+    ],
+  },
 })
 
 export default config

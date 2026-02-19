@@ -6,6 +6,7 @@ import { AppLayout } from '@/components/app-layout'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { SITE_NAME } from '@/siteConfig'
+import { AppClerkProvider } from '@/integrations/clerk/app-clerk-provider'
 
 import appCss from '../styles.css?url'
 
@@ -47,12 +48,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <AppProvider>
-          <TooltipProvider>
-            <AppLayout>{children}</AppLayout>
-            <Toaster />
-          </TooltipProvider>
-        </AppProvider>
+        <AppClerkProvider>
+          <AppProvider>
+            <TooltipProvider>
+              <AppLayout>{children}</AppLayout>
+              <Toaster />
+            </TooltipProvider>
+          </AppProvider>
+        </AppClerkProvider>
 
         <TanStackDevtools
           config={{
