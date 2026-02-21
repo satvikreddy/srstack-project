@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#000",
+    "titleBar.inactiveBackground": "#000"
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "git.autofetch": true
+}

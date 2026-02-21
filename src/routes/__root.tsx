@@ -1,6 +1,11 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { AppProvider } from '@/components/app-provider'
+import { AppLayout } from '@/components/app-layout'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { Toaster } from '@/components/ui/sonner'
+import { SITE_NAME } from '@/siteConfig'
 
 import appCss from '../styles.css?url'
 
@@ -15,7 +20,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: SITE_NAME,
       },
     ],
     links: [
@@ -23,10 +28,16 @@ export const Route = createRootRoute({
         rel: 'stylesheet',
         href: appCss,
       },
+      {
+        rel: 'icon',
+        href: '/icon.png',
+      },
     ],
   }),
 
   shellComponent: RootDocument,
+
+  notFoundComponent: () => <div>Page not found</div>,
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -36,7 +47,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <AppProvider>
+          <TooltipProvider>
+            <AppLayout>{children}</AppLayout>
+            <Toaster />
+          </TooltipProvider>
+        </AppProvider>
+
         <TanStackDevtools
           config={{
             position: 'bottom-right',
