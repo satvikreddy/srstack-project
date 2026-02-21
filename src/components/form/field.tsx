@@ -1,8 +1,11 @@
+import { fieldLabelSize } from '@/components/ui/field-styles'
 import { AppFieldApi } from '@/components/form/field.types'
 
 export const AppFieldLabel = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="text-sm font-medium text-muted-foreground">{children}</div>
+    <div className={`${fieldLabelSize} font-medium text-muted-foreground`}>
+      {children}
+    </div>
   )
 }
 
