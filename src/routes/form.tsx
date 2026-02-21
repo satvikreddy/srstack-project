@@ -1,3 +1,4 @@
+import AppButton from '@/components/app-button'
 import {
   AppForm,
   AppFormSubmitButton,
@@ -77,12 +78,20 @@ function RouteComponent() {
       <AppFormSubscribe
         form={form}
         children={({ isSubmitDisabled, isTouched }) => (
-          <AppFormSubmitButton
-            label="Save"
-            isSubmitDisabled={isSubmitDisabled}
-            isTouched={isTouched}
-            onClick={() => form.handleSubmit()}
-          />
+          <div className="flex gap-2 sm:justify-end">
+            <AppButton
+              className="flex-1 shrink sm:flex-none sm:shrink-0"
+              label="Cancel"
+              onClick={() => {}}
+            />
+            <AppFormSubmitButton
+              className="flex-1 shrink sm:flex-none sm:shrink-0"
+              label="Save"
+              isSubmitDisabled={isSubmitDisabled}
+              isTouched={isTouched}
+              onClick={() => form.handleSubmit()}
+            />
+          </div>
         )}
       />
     </div>

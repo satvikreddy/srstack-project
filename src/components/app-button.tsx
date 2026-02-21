@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { logEvent } from '@/lib/analytics'
 
 type Props = {
+  className?: string
   label: string
   onClick: () => void
 }
@@ -9,6 +10,7 @@ type Props = {
 const AppButton = (props: Props) => {
   return (
     <Button
+      className={props.className}
       variant="outline"
       onClick={
         props.onClick

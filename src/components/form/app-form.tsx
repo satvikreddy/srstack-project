@@ -85,6 +85,7 @@ export const AppFormSubscribe = <TFormData,>({
 }
 
 export const AppFormSubmitButton = (props: {
+  className?: string
   icon?: React.ReactNode
   label: string
   isSubmitDisabled: boolean
@@ -93,7 +94,7 @@ export const AppFormSubmitButton = (props: {
 }) => {
   return (
     <Button
-      size="lg"
+      className={props.className}
       type="submit"
       variant={props.isTouched ? 'default' : 'outline'}
       disabled={props.isSubmitDisabled}
