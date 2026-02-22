@@ -10,7 +10,8 @@ export const fieldHeight = 'h-11 sm:h-9'
  * Height for SelectTrigger, which uses data-size attributes to support sm/default variants.
  * Mirrors fieldHeight but expressed as data-attribute variants.
  */
-export const fieldHeightDataAttr = 'data-[size=default]:h-11 data-[size=default]:sm:h-9'
+export const fieldHeightDataAttr =
+  'data-[size=default]:h-11 data-[size=default]:sm:h-9'
 
 /** Vertical padding for dropdown list items (combobox, select) */
 export const fieldItemPadding = 'py-3 sm:py-1.5'

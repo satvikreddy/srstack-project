@@ -80,7 +80,9 @@ const SearchableDropdownField = <TValue,>({
 
       {hasValue ? (
         <div className="border-input flex min-h-[40px] items-center justify-between rounded-md border p-2 shadow-xs">
-          <div className="flex-1">{itemBuilder(field.state.value as TValue)}</div>
+          <div className="flex-1">
+            {itemBuilder(field.state.value as TValue)}
+          </div>
           <Button
             type="button"
             variant="ghost"
